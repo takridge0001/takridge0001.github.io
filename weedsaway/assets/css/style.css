@@ -1,0 +1,29 @@
+#sidebar-wrapper {
+	background-color: #222222 !important;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #222222 !important;
+  border-color: #111111;
+}
+
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+	background-color: #333333 !important;
+	border-color: #444444 !important;
+	color: #ffffff !important;
+}
+
+.btn-primary {
+	background-color: #111111 !important;
+	border-color: #222222 !important;
+	color: #ffffff !important;
+}
+
+.mb-1 {
+	color: #ffffff;
+}
+
+.mb-5 {
+	color: #dddddd;
+}
