@@ -32,8 +32,20 @@
                 <img src="assets/img/logo.png" />
             </div>
             <h1 class="mb-1">Weeds Away</h1>
-            <h3 class="mb-5"><em><strong>We make home gardening easy and efficient by helping you maximize your available space with the plants you want, when you want them to grow.&nbsp;Keep the weeds at bay with Weeds Away!</strong></em></h3>
-            <a class="btn btn-primary btn-xl js-scroll-trigger" role="button" href="start.html">Get Started</a>
+            <h3 class="mb-5"><em><strong>First, let's get to know your garden.  By telling us just a few details, we can tailor the plants you need to the space you have.</strong></em></h3>
+            <form action="select.html" name="form">
+                <div class="my-auto start-numbers">
+                    <div class="row">
+                        <div class="offset-lg-3 col-lg-3 text-left">How long are your rows?</div>
+                        <div class="col-lg-6 text-left"><input type="text" name="length" />&nbsp;ft</div>
+                    </div>
+                    <div class="row">
+                        <div class="offset-lg-3 col-lg-3 text-left">How many rows do you have?</div>
+                        <div class="col-lg-6 text-left"><input type="text" name="number" /></div>
+                    </div>
+                </div>
+            </form>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" role="button" href="#" onclick="document.form.submit();">Get Planning</a>
             <div class="overlay"></div>
         </div>
     </header>

@@ -1,3 +1,7 @@
+#meter {
+	width: 100%;
+}
+
 #sidebar-wrapper {
 	background-color: #222222 !important;
 }
@@ -20,10 +24,115 @@
 	color: #ffffff !important;
 }
 
+.filter {
+	border-radius: 6px;
+	border-style: solid;
+	border-width: 1px;
+	margin-top: 20px;
+}
+
+.filter > div > div {
+	display: none;
+}
+
+.filter label {
+	font-size: 20px;
+	padding-left: 5px;
+}
+
 .mb-1 {
 	color: #ffffff;
 }
 
 .mb-5 {
 	color: #dddddd;
+}
+
+.meter-container {
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+
+.order-header {
+	border-radius: 6px;
+	border-style: solid;
+	border-width: 1px;
+}
+
+.order-info {
+	margin-top: 30px;
+}
+
+.order-info input {
+	width: 100%;
+}
+
+.plant {
+	text-align: center;
+}
+
+.plant img {
+	max-width: 150px;
+	max-height: 150px;
+}
+
+.plant input {
+	width: 30px;
+}
+
+.plants {
+	margin-top: 20px;
+}
+
+.section-header {
+	color: #fff;
+	font-size: 32px;
+	width: 100%;
+}
+
+.section-header-logo {
+	max-width: 75px;
+}
+
+.section-header-logo-container {
+	float: left;
+}
+
+.selection-image-container {
+	min-width: 50px;
+}
+
+.section-header-text {
+	float: left;
+	padding-top: 6px;
+}
+
+.selection img {
+	max-width: 50px;
+	max-height: 50px;
+}
+.start-numbers {
+	color: #fff;
+}
+
+.start-numbers input {
+	width: 100px;
+}
+
+.start-numbers .row {
+	font-size: 125%;
+	padding: 10px 0px;
+}
+
+.trash {
+	width: 100%;
+}
+
+.truck-img {
+	min-height: 100px !important;
+	min-width: 200px !important;
+}
+
+body {
+	color: #fff;
 }
