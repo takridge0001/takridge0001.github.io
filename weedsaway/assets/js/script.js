@@ -60,7 +60,7 @@ $(document).ready(function() {
         $("#" + name).parent().parent().parent().parent().show();
         $("#" + name).text(input.val());
         $("#truck").show();
-        input.val('0');
+        //input.val('0');
         calculateMeter();
     });
 
@@ -74,5 +74,23 @@ $(document).ready(function() {
         }
 
         calculateMeter();
+    });
+    
+    $("input[class*='start']").change(function() {
+        if (!$.isNumeric($(this).val())) {
+            $(this).val('');
+            $("#error").show();
+            return;
+        }
+
+        var current = parseInt($(this).val());
+
+        if (current < 1) {
+            $(this).val('');
+            $("#error").show();
+            return;
+        }
+
+        $("#error").hide();
     });
 });

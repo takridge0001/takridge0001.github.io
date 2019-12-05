@@ -17,11 +17,10 @@
         <div class="container"><button data-toggle="collapse" class="navbar-toggler d-none" data-target="#"></button>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav sidebar-nav" id="sidebar-nav">
-                    <li class="nav-item sidebar-brand" role="presentation"><a class="nav-link active js-scroll-trigger" href="#page-top">Weeds Away</a></li>
-                    <li class="nav-item sidebar-nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#page-top">Home</a></li>
-                    <li class="nav-item sidebar-nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                    <li class="nav-item sidebar-nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
-                    <li class="nav-item sidebar-nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+                        <li class="nav-item sidebar-brand" role="presentation"><a class="nav-link active js-scroll-trigger" href="#page-top">Weeds Away</a></li>
+                        <li class="nav-item sidebar-nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="index.html">About</a></li>
+                        <li class="nav-item sidebar-nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="start.html">Get Started</a></li>
+                        <li class="nav-item sidebar-nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="contact.html">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -37,14 +36,15 @@
                 <div class="my-auto start-numbers">
                     <div class="row">
                         <div class="offset-lg-3 col-lg-3 text-left">How long are your rows?</div>
-                        <div class="col-lg-6 text-left"><input type="text" name="length" />&nbsp;ft</div>
+                        <div class="col-lg-6 text-left"><input type="text" name="length" class="start" />&nbsp;ft</div>
                     </div>
                     <div class="row">
                         <div class="offset-lg-3 col-lg-3 text-left">How many rows do you have?</div>
-                        <div class="col-lg-6 text-left"><input type="text" name="number" /></div>
+                        <div class="col-lg-6 text-left"><input type="text" name="number" class="start" /></div>
                     </div>
                 </div>
             </form>
+            <div id="error">These must be numbers greater than zero.</div>
             <a class="btn btn-primary btn-xl js-scroll-trigger" role="button" href="#" onclick="document.form.submit();">Get Planning</a>
             <div class="overlay"></div>
         </div>
@@ -59,6 +59,7 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="assets/js/stylish-portfolio.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
