@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>CIT 140 - Program 5</title>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.3/handlebars.min.js"></script>
+        <style>
+        </style>
+        <script type="text/x-handlebars-template" id="majorTableTemplate">
+            <table class="table table-striped">
+                <tr><th>Name</th><th>Major</th><th>Midterm</th><th>Final</th></tr>
+                {{#each rows}}
+                    <tr>
+                        <td>{{name}}</td><td>{{major}}</td><td>{{midterm}}</td><td>{{final}}</td>
+                    </tr>
+                {{/each}}
+            </table>
+        </script>
+        <script type="text/javascript">
+            function showData(majorFilter) {
+                var request = new XMLHttpRequest();
+                request.open('GET', 'cit5students.json');
+                request.onload = function () {
+                    var students = JSON.parse(request.responseText).filter(function(student) {return student.major == majorFilter;});
+                    if (request.status == 200) {
+                        var compilation = Handlebars.compile(document.getElementById('tableTemplate').innerHTML);
+                        document.getElementById('majorTable').innerHTML = compilation({rows: students});
+                    } else {
+                        document.getElementById("majorTable").innerHTML = "Danger, Will Robinson.  Request encounterd an error.";
+                    }
+                }
+                request.send(null);
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Select a Major</h2><br /><br />
+            <form>
+                <button type="button" class="btn btn-primary" onclick="showData('CIT');">CIT Majors</button>
+                <button type="button" class="btn btn-primary" onclick="showData('BUS');">Business Majors</button>
+            </form><br /><br />     
+            <h3>We filter our dataset by major</h3>
+            <div id="majorTable"></div>
+       </div>
+    </body>
+</html>
