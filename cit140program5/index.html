@@ -24,7 +24,7 @@
                 request.onload = function () {
                     var students = JSON.parse(request.responseText).filter(function(student) {return student.major == majorFilter;});
                     if (request.status == 200) {
-                        var compilation = Handlebars.compile(document.getElementById('tableTemplate').innerHTML);
+                        var compilation = Handlebars.compile(document.getElementById('majorTableTemplate').innerHTML);
                         document.getElementById('majorTable').innerHTML = compilation({rows: students});
                     } else {
                         document.getElementById("majorTable").innerHTML = "Danger, Will Robinson.  Request encounterd an error.";
