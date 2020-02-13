@@ -19,7 +19,7 @@
                 <div>
                     <ul class="nav navbar-nav">
                         <li><a href="index.html">All Advisees</a></li>
-                        <li class="active">Grade Point Averages</li>
+                        <li class="active"><a href="gpa.html">Grade Point Averages</a></li>
                     </ul>
                 </div>
             </nav>
@@ -29,14 +29,14 @@
                 <table class="table table-bordered table-striped">
                     <tr>
                         <th>Id</th>
-                        <th>First Name</th>
                         <th>Last Name</th>
+                        <th>First Name</th>
                         <th>GPA</th>
                     </tr>
                     <tr ng-repeat="student in students | filter:search_text">
                         <td>{{student.id}}</td>
-                        <td>{{student.first_name}}</td>
                         <td>{{student.last_name}}</td>
+                        <td>{{student.first_name}}</td>
                         <td>{{(student.gpa_points / student.credit_hrs).toFixed(1)}}</td>
                     </tr>
                 </table>
