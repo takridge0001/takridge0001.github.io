@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Thomas\Documents\KCTCS\CIT 155\takridge0001.github.io\weedsaway-ng\src\main.ts */"zUnb");
+module.exports = __webpack_require__(/*! C:\Users\Thomas\Documents\KCTCS\CIT 155\takridge0001.github.io\weedsaway-ng-src\src\main.ts */"zUnb");
 
 
 /***/ }),
