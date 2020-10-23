@@ -1,0 +1,51 @@
+[
+	{
+		"id": 0,
+		"image": "assets/img/corn-golden.png",
+		"name": "Yellow Corn",
+		"spacing": 1,
+		"attributes": ["Warm Season", "Grain"]
+	},
+	{
+		"id": 1,
+		"image": "assets/img/corn-white.png",
+		"name": "Silver Queen",
+		"spacing": 1,
+		"attributes": ["Warm Season", "Grain"]
+	},
+	{
+		"id": 2,
+		"image": "assets/img/carrots.png",
+		"name": "Short 'n' Sweet",
+		"spacing": 20,
+		"attributes": ["Cool Season", "Root"]
+	},
+	{
+		"id": 3,
+		"image": "assets/img/garlic.png",
+		"name": "Garlic",
+		"spacing": 3,
+		"attributes": ["Cool Season", "Root"]
+	},
+	{
+		"id": 4,
+		"image": "assets/img/onion-red.png",
+		"name": "Red Onion",
+		"spacing": 2,
+		"attributes": ["Warm Season", "Root"]
+	},
+	{
+		"id": 5,
+		"image": "assets/img/onion-yellow.png",
+		"name": "Yellow Onion",
+		"spacing": 2,
+		"attributes": ["Warm Season", "Root"]
+	},
+	{
+		"id": 6,
+		"image": "assets/img/onion-white.png",
+		"name": "White Onion",
+		"spacing": 2,
+		"attributes": ["Warm Season", "Root"]
+	}
+]

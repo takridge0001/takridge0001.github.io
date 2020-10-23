@@ -372,7 +372,7 @@ function SelectComponent_div_18_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](11, "br");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "input", 21);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("keyup", function SelectComponent_div_18_Template_input_keyup_12_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r8); const ctx_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r7.plantSelected($event); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("keyup", function SelectComponent_div_18_Template_input_keyup_12_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r8); const ctx_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r7.plantChanged($event); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -390,14 +390,33 @@ function SelectComponent_div_18_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" Spacing: ", plant_r6.spacing, " per 12\"");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("is-invalid", ctx_r1.isInvalid(ctx_r1));
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("name", plant_r6.name);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("id", plant_r6.name);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("name", plant_r6.id);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("id", plant_r6.id);
 } }
 function SelectComponent_ng_container_21_Template(rf, ctx) { if (rf & 1) {
+    const _r11 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, " something");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "br");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 22);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "button", 23);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SelectComponent_ng_container_21_Template_button_click_3_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r11); const plantToOrder_r9 = ctx.$implicit; const ctx_r10 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r10.plantSelected(plantToOrder_r9.plant.id, 0); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "X");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "div", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerEnd"]();
+} if (rf & 2) {
+    const plantToOrder_r9 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](plantToOrder_r9.plant.name);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](plantToOrder_r9.amt);
 } }
 class SelectComponent {
     constructor(route, router) {
@@ -407,7 +426,7 @@ class SelectComponent {
         this.rowLength = 0;
         this.plants = _data_plants_json__WEBPACK_IMPORTED_MODULE_1__;
         this.plantsSelected = [];
-        this.attributes = new Set(this.plants.flatMap(x => x.attributes));
+        this.attributes = [...new Set(this.plants.flatMap(x => x.attributes))];
         this.attributesSelected = [...new Set(this.plants.flatMap(x => x.attributes))];
         this.invalidPlants = [];
     }
@@ -419,8 +438,10 @@ class SelectComponent {
         if (this.rowNumber < 1 || this.rowLength < 1) {
             this.router.navigate(['/start']);
         }
-        var plantNames = [...new Set(this.plants.flatMap(x => x.name))];
-        plantNames.forEach(item => this.plantsSelected[String(item)] = 0);
+        // var plantNames = [...new Set(this.plants.flatMap(x => x.name))];
+        // plantNames.forEach(item => this.plantsSelected[String(item)] = 0);
+        // var plantIds = [...new Set(this.plants.flatMap(x => x.id))];
+        // plantIds.forEach(item => this.plantsSelected[parseInt(String(item))] = 0);
     }
     ngOnDestroy() {
         this.sub.unsubscribe();
@@ -450,24 +471,44 @@ class SelectComponent {
         }
         return false;
     }
-    plantSelected(event) {
-        console.log(event);
-        var index = this.invalidPlants.indexOf(event.srcElement.id);
-        if (this.isNonNegativeInt(event.srcElement.value)) {
-            event.target.classList.remove("is-invalid");
-            this.plantsSelected[event.srcElement.id] = parseInt(event.srcElement.value);
+    plantChanged(event) {
+        this.plantSelected(event.srcElement.id, event.srcElement.value, event.target);
+    }
+    plantSelected(id, amount, target) {
+        var index = this.invalidPlants.indexOf(id);
+        if (this.isNonNegativeInt(amount)) {
+            if (target != null) {
+                target.classList.remove("is-invalid");
+            }
+            this.plantsSelected[id] = parseInt(amount);
             if (index > -1) {
                 this.invalidPlants.splice(index, 1);
             }
         }
         else if (index < 0) {
-            event.target.classList.add("is-invalid");
-            this.invalidPlants.push(event.srcElement.id);
+            if (target != null) {
+                target.classList.add("is-invalid");
+            }
+            this.invalidPlants.push(id);
         }
+    }
+    plantsToOrder() {
+        var ret = [];
+        this.plantsSelected.forEach((item, key) => {
+            var next = {};
+            next["amt"] = item;
+            next["plant"] = this.plants[key];
+            if (item > 0) {
+                ret.push(next);
+            }
+        });
+        return ret;
+    }
+    saveSelection(event) {
     }
 }
 SelectComponent.ɵfac = function SelectComponent_Factory(t) { return new (t || SelectComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"])); };
-SelectComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: SelectComponent, selectors: [["ng-component"]], decls: 22, vars: 6, consts: [[1, "d-flex", 2, "background-image", "url('assets/img/grass.jpg')"], [1, "full-width"], [1, "col-lg-12"], [1, "section-header-logo-container"], ["src", "assets/img/logo.png", 1, "section-header-logo"], [1, "section-header-text"], [1, "col-lg-12", "clearfloat"], [1, "row"], [1, "col-lg-2", "rounded-border"], [4, "ngFor", "ngForOf"], [1, "col-lg-8", "plants"], [1, "row", "meter-container"], [1, "col-lg-2", "text-left"], [1, "col-lg-10", "meter"], ["min", "0", "high", "100", "max", "110", "value", "1", "id", "meter"], ["class", "col-lg-3 plant", 4, "ngFor", "ngForOf"], ["type", "checkbox", "checked", "", 3, "name", "id", "change"], [3, "for"], [1, "col-lg-3", "plant"], [1, "col-md-6"], [3, "src"], ["type", "text", "value", "0", 3, "name", "id", "keyup"]], template: function SelectComponent_Template(rf, ctx) { if (rf & 1) {
+SelectComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: SelectComponent, selectors: [["ng-component"]], decls: 22, vars: 6, consts: [[1, "d-flex", 2, "background-image", "url('assets/img/grass.jpg')"], [1, "full-width"], [1, "col-lg-12"], [1, "section-header-logo-container"], ["src", "assets/img/logo.png", 1, "section-header-logo"], [1, "section-header-text"], [1, "col-lg-12", "clearfloat"], [1, "row"], [1, "col-lg-2", "rounded-border"], [4, "ngFor", "ngForOf"], [1, "col-lg-8", "plants"], [1, "row", "meter-container"], [1, "col-lg-2", "text-left"], [1, "col-lg-10", "meter"], ["min", "0", "high", "100", "max", "110", "value", "1", "id", "meter"], ["class", "col-lg-3 plant", 4, "ngFor", "ngForOf"], ["type", "checkbox", "checked", "", 3, "name", "id", "change"], [3, "for"], [1, "col-lg-3", "plant"], [1, "col-md-6"], [3, "src"], ["type", "text", "value", "0", 3, "name", "id", "keyup"], [1, "col-sm-1"], [3, "click"], [1, "col-sm-6"], [1, "col-sm-2"]], template: function SelectComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "main", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
@@ -498,7 +539,7 @@ SelectComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCo
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "div", 8);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](21, SelectComponent_ng_container_21_Template, 3, 0, "ng-container", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](21, SelectComponent_ng_container_21_Template, 9, 2, "ng-container", 9);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -506,11 +547,11 @@ SelectComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCo
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.attributes);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.attributes.sort());
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](8);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](19, 3, ctx.plants, ctx.attributesSelected));
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.plantsSelected);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.plantsToOrder());
     } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["NgForOf"]], pipes: [_pipes_attributeFilter_pipe__WEBPACK_IMPORTED_MODULE_4__["AttributeFilterPipe"]], encapsulation: 2 });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](SelectComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
@@ -705,7 +746,7 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
 /*! exports provided: 0, 1, 2, 3, 4, 5, 6, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("[{\"image\":\"assets/img/corn-golden.png\",\"name\":\"Yellow Corn\",\"spacing\":1,\"attributes\":[\"Warm Season\",\"Grain\"]},{\"image\":\"assets/img/corn-white.png\",\"name\":\"Silver Queen\",\"spacing\":1,\"attributes\":[\"Warm Season\",\"Grain\"]},{\"image\":\"assets/img/carrots.png\",\"name\":\"Short 'n' Sweet\",\"spacing\":20,\"attributes\":[\"Cool Season\",\"Root\"]},{\"image\":\"assets/img/garlic.png\",\"name\":\"Garlic\",\"spacing\":3,\"attributes\":[\"Cool Season\",\"Root\"]},{\"image\":\"assets/img/onion-red.png\",\"name\":\"Red Onion\",\"spacing\":2,\"attributes\":[\"Warm Season\",\"Root\"]},{\"image\":\"assets/img/onion-yellow.png\",\"name\":\"Yellow Onion\",\"spacing\":2,\"attributes\":[\"Warm Season\",\"Root\"]},{\"image\":\"assets/img/onion-white.png\",\"name\":\"White Onion\",\"spacing\":2,\"attributes\":[\"Warm Season\",\"Root\"]}]");
+module.exports = JSON.parse("[{\"id\":0,\"image\":\"assets/img/corn-golden.png\",\"name\":\"Yellow Corn\",\"spacing\":1,\"attributes\":[\"Warm Season\",\"Grain\"]},{\"id\":1,\"image\":\"assets/img/corn-white.png\",\"name\":\"Silver Queen\",\"spacing\":1,\"attributes\":[\"Warm Season\",\"Grain\"]},{\"id\":2,\"image\":\"assets/img/carrots.png\",\"name\":\"Short 'n' Sweet\",\"spacing\":20,\"attributes\":[\"Cool Season\",\"Root\"]},{\"id\":3,\"image\":\"assets/img/garlic.png\",\"name\":\"Garlic\",\"spacing\":3,\"attributes\":[\"Cool Season\",\"Root\"]},{\"id\":4,\"image\":\"assets/img/onion-red.png\",\"name\":\"Red Onion\",\"spacing\":2,\"attributes\":[\"Warm Season\",\"Root\"]},{\"id\":5,\"image\":\"assets/img/onion-yellow.png\",\"name\":\"Yellow Onion\",\"spacing\":2,\"attributes\":[\"Warm Season\",\"Root\"]},{\"id\":6,\"image\":\"assets/img/onion-white.png\",\"name\":\"White Onion\",\"spacing\":2,\"attributes\":[\"Warm Season\",\"Root\"]}]");
 
 /***/ }),
 
