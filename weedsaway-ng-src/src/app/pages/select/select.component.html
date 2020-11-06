@@ -38,6 +38,7 @@
                     </div>
                 </div>
                 <div class="col-lg-2 rounded-border">
+                    <a [class.disabled]="plantsToOrder().length < 1" class="btn btn-primary btn-xl js-scroll-trigger" role="button" [routerLink]="['/order']">Place Order</a>
                     <ng-container *ngFor="let plantToOrder of plantsToOrder()">
                         <div class="row">
                             <div class="col-sm-1"><button (click)="plantSelected(plantToOrder.plant.id, 0)">X</button></div>

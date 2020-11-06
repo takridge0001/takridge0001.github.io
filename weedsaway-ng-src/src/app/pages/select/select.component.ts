@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import * as data from '../../data/plants.json';
 
 @Component({
@@ -16,7 +17,7 @@ export class SelectComponent {
     attributesSelected: any = [...new Set(this.plants.flatMap(x => x.attributes))];
     invalidPlants: any = [];
 
-    constructor(private route: ActivatedRoute, private router: Router) {}
+    constructor(private route: ActivatedRoute, private router: Router, private cookieService: CookieService) {}
 
     ngOnInit() {
         this.sub = this.route.params.subscribe(params => {
@@ -28,10 +29,9 @@ export class SelectComponent {
             this.router.navigate(['/start']);
         }
 
-        // var plantNames = [...new Set(this.plants.flatMap(x => x.name))];
-        // plantNames.forEach(item => this.plantsSelected[String(item)] = 0);
-        // var plantIds = [...new Set(this.plants.flatMap(x => x.id))];
-        // plantIds.forEach(item => this.plantsSelected[parseInt(String(item))] = 0);
+        if (this.cookieService.check('weedsaway')) {
+            this.plantsSelected = JSON.parse(this.cookieService.get('weedsaway'));
+         }
     }
 
     ngOnDestroy() {
@@ -76,6 +76,7 @@ export class SelectComponent {
         if (this.isNonNegativeInt(amount)) {
             if (target != null) { target.classList.remove("is-invalid"); }
             this.plantsSelected[id] = parseInt(amount);
+            this.cookieService.set('weedsaway', JSON.stringify(this.plantsSelected));
             if (index > -1) {
                 this.invalidPlants.splice(index, 1);
             }
@@ -94,9 +95,5 @@ export class SelectComponent {
             if (item > 0) {ret.push(next);}
         });
         return ret;
-    }
-
-    saveSelection(event: any) {
-
     }
 }

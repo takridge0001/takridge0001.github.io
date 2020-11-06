@@ -1,0 +1,12 @@
+<main class="d-flex" style="background-image:url('assets/img/grass.jpg');">
+    <div class="full-width">
+        <div class="col-lg-12">
+            <ng-container *ngFor="let plantToOrder of plantsToOrder()">
+                <div class="row">
+                    <div class="col-sm-1">{{plantToOrder.amt}}</div>
+                    <div class="col-sm-6">{{plantToOrder.plant.name}}</div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</main>

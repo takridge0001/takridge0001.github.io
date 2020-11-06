@@ -9,11 +9,12 @@ const routes: Routes = [
   {path: '', component: HomeComponent },
   {path: 'start', component: StartComponent },
   {path: 'select/:rowLength/:rowNumber', component: SelectComponent },
+  {path: 'order', component: OrderComponent },
   {path: '**', redirectTo: '' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
