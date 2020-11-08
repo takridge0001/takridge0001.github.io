@@ -8,6 +8,7 @@ import * as data from '../../data/plants.json';
 })
 export class SelectComponent {
     private sub: any;
+    public meterValue = 0;
     public rowNumber = 0;
     public rowLength = 0;
 
@@ -32,6 +33,8 @@ export class SelectComponent {
         if (this.cookieService.check('weedsaway')) {
             this.plantsSelected = JSON.parse(this.cookieService.get('weedsaway'));
          }
+
+         this.setMeterValue();
     }
 
     ngOnDestroy() {
@@ -77,6 +80,7 @@ export class SelectComponent {
             if (target != null) { target.classList.remove("is-invalid"); }
             this.plantsSelected[id] = parseInt(amount);
             this.cookieService.set('weedsaway', JSON.stringify(this.plantsSelected));
+            this.setMeterValue();
             if (index > -1) {
                 this.invalidPlants.splice(index, 1);
             }
@@ -95,5 +99,13 @@ export class SelectComponent {
             if (item > 0) {ret.push(next);}
         });
         return ret;
+    }
+
+    setMeterValue() {
+        var distance = 0;
+        this.plantsSelected.forEach((item, key) => {
+            distance += item / this.plants[key].spacing;
+        });
+        this.meterValue = distance / (this.rowLength * this.rowNumber) * 100;
     }
 }

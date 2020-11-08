@@ -18,7 +18,7 @@
                             Fill up your garden!
                         </div>
                         <div class="col-lg-10 meter">
-                            <meter min="0" high="100" max="110" value="1" id="meter"></meter>
+                            <meter min="0" high="100" max="110" value="{{meterValue}}" id="meter"></meter>
                         </div>
                     </div>
                     <div class="row">
@@ -37,13 +37,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 rounded-border">
-                    <a [class.disabled]="plantsToOrder().length < 1" class="btn btn-primary btn-xl js-scroll-trigger" role="button" [routerLink]="['/order']">Place Order</a>
+                <div class="col-lg-2 rounded-border text-center">
+                    <a [class.disabled]="plantsToOrder().length < 1" class="btn btn-primary btn-xl js-scroll-trigger order-button" role="button" [routerLink]="['/order']">Place Order</a>
                     <ng-container *ngFor="let plantToOrder of plantsToOrder()">
                         <div class="row">
-                            <div class="col-sm-1"><button (click)="plantSelected(plantToOrder.plant.id, 0)">X</button></div>
-                            <div class="col-sm-6">{{plantToOrder.plant.name}}</div>
-                            <div class="col-sm-2">{{plantToOrder.amt}}</div>
+                            <div class="col-sm-2"><a class="btn btn-primary" (click)="plantSelected(plantToOrder.plant.id, 0)"><i class="fa fa-trash"></i></a></div>
+                            <div class="col-sm-3 text-right order-text">{{plantToOrder.amt}}</div>
+                            <div class="col-sm-6 text-left order-text">{{plantToOrder.plant.name}}</div>
                         </div>
                     </ng-container>
                 </div>
