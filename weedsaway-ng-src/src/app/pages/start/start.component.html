@@ -1,19 +1,19 @@
 <main class="d-flex" style="background-image:url('assets/img/grass.jpg');">
     <div class="container my-auto text-center">
         <div class="logo">
-            <img src="assets/img/logo.png" />
+            <img src="assets/img/logo.png" alt="WeedsAway logo" />
         </div>
         <h1 class="mb-1">Weeds Away</h1>
-        <h3 class="mb-5"><em><strong>First, let's get to know your garden.  By telling us just a few details, we can tailor the plants you need to the space you have.</strong></em></h3>
+        <h2 class="mb-5"><em><strong>First, let's get to know your garden.  By telling us just a few details, we can tailor the plants you need to the space you have.</strong></em></h2>
         <form action="select.html" name="form">
             <div class="my-auto start-numbers">
                 <div class="row">
                     <div class="offset-lg-3 col-lg-3 text-left">How long are your rows?</div>
-                    <div class="col-lg-6 text-left"><input type="text" class="form-control" name="rowLength" [(ngModel)]="rowLength" class="start" [class.is-invalid]="rowLengthngModel.errors?.invalidPositiveInteger" #rowLengthngModel="ngModel" positiveIntegerDirective (ngModelChange)="updateSelectLink();" />&nbsp;ft</div>
+                    <div class="col-lg-6 text-left"><label class="d-none">Row Length</label><input type="text" class="form-control" name="rowLength" [(ngModel)]="rowLength" class="start" [class.is-invalid]="rowLengthngModel.errors?.invalidPositiveInteger" #rowLengthngModel="ngModel" positiveIntegerDirective (ngModelChange)="updateSelectLink();" />&nbsp;ft</div>
                 </div>
                 <div class="row">
                     <div class="offset-lg-3 col-lg-3 text-left">How many rows do you have?</div>
-                    <div class="col-lg-6 text-left"><input type="text" class="form-control" name="rowNumber" [(ngModel)]="rowNumber" class="start" [class.is-invalid]="rowNumberngModel.errors?.invalidPositiveInteger" #rowNumberngModel="ngModel" positiveIntegerDirective (ngModelChange)="updateSelectLink();" /></div>
+                    <div class="col-lg-6 text-left"><label class="d-none">Row Number</label><input type="text" class="form-control" name="rowNumber" [(ngModel)]="rowNumber" class="start" [class.is-invalid]="rowNumberngModel.errors?.invalidPositiveInteger" #rowNumberngModel="ngModel" positiveIntegerDirective (ngModelChange)="updateSelectLink();" /></div>
                 </div>
             </div>
         </form>
