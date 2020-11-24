@@ -1,12 +1,91 @@
-<main class="d-flex" style="background-image:url('assets/img/grass.jpg');">
+<main class="d-flex" style="background-image:url('assets/img/grass.png');">
     <div class="full-width">
+        <div class="col-lg-12 text-center">
+            <div style="display: inline-block;"><img src="assets/img/logo.png" class="section-header-logo" alt="WeedsAway logo" /></div>
+            <div style="display: inline-block;">Weeds Away</div>
+        </div>
         <div class="col-lg-12">
-            <ng-container *ngFor="let plantToOrder of plantsToOrder()">
-                <div class="row">
-                    <div class="col-sm-1">{{plantToOrder.amt}}</div>
-                    <div class="col-sm-6">{{plantToOrder.plant.name}}</div>
+            <div class="row">
+                <div class="offset-lg-4 col-lg-4">
+                    <div class="row order-header">
+                        <div class="col-3">Qty</div>
+                        <div class="col-9">Plant</div>
+                    </div>
+                    <ng-container *ngFor="let plantToOrder of plantsToOrder()">
+                        <div class="row">
+                            <div class="col-3">{{plantToOrder.amt}}</div>
+                            <div class="col-9">{{plantToOrder.plant.name}}</div>
+                        </div>
+                    </ng-container>
                 </div>
-            </ng-container>
+            </div>
+            <div class="row order-info">
+                <div class="offset-lg-3 col-lg-6">
+                    <div class="row">
+                        <div class="col-12">
+
+                            <div class="row mx-4">
+                                <div class="col-12 mb-2">
+                                <label class="order-form-label">Name</label>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                <input class="order-form-input" placeholder="First">
+                                </div>
+                                <div class="col-12 col-sm-6 mt-2 mt-sm-0">
+                                <input class="order-form-input" placeholder="Last">
+                                </div>
+                            </div>
+                    
+                            <div class="row mt-3 mx-4">
+                                <div class="col-6">
+                                <label class="order-form-label" for="date-picker-example">Date</label>
+                                </div>
+                                <div class="col-6">
+                                <label class="order-form-label" for="date-picker-example">Card Number</label>
+                                </div>
+                                <div class="col-6">
+                                <input class="order-form-input datepicker" placeholder="Selected date" type="text"
+                                    id="date-picker-example">
+                                </div>
+                                <div class="col-6">
+                                <input class="order-form-input">
+                                </div>
+                            </div>
+                    
+                            <div class="row mt-3 mx-4">
+                                <div class="col-12">
+                                <label class="order-form-label">Address</label>
+                                </div>
+                                <div class="col-12">
+                                <input class="order-form-input" placeholder="Street Address">
+                                </div>
+                                <div class="col-12 mt-2">
+                                <input class="order-form-input" placeholder="Street Address Line 2">
+                                </div>
+                                <div class="col-12 col-sm-6 mt-2 pr-sm-2">
+                                <input class="order-form-input" placeholder="City">
+                                </div>
+                                <div class="col-12 col-sm-6 mt-2 pl-sm-0">
+                                <input class="order-form-input" placeholder="Region">
+                                </div>
+                                <div class="col-12 col-sm-6 mt-2 pr-sm-2">
+                                <input class="order-form-input" placeholder="Postal / Zip Code">
+                                </div>
+                                <div class="col-12 col-sm-6 mt-2 pl-sm-0">
+                                <input class="order-form-input" placeholder="Country">
+                                </div>
+                            </div>
+                    
+                            <div class="row mt-3">
+                                <div class="col-12 text-center">
+                                    <a class="btn btn-primary btn-xl js-scroll-trigger" role="button" routerLink='/thanks'>Submit</a>
+                                </div>
+                            </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </main>
